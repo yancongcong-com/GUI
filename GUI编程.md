@@ -1,3 +1,7 @@
+
+
+
+
 # GUI编程
 
 ## 1. 简介
@@ -86,7 +90,115 @@
    }
    ```
 
+   ```java
    
+   ```
+
+#### 2.2布局管理器
+
+1. 流式布局
+
+   ```java
+   public class Layout {
+       public static void main(String[] args) {
+           System.out.println();
+           Frame frame = new Frame();
+           //组件按钮
+           Button button1 = new Button("第一个按钮");
+           Button button2 = new Button("第一个按钮");
+           Button button3 = new Button("第一个按钮");
+           //设置为流式布局
+           frame.setLayout(new FlowLayout());
+           //
+           frame.setSize(200,200);
+           frame.add(button1);
+           frame.add(button2);
+           frame.add(button3);
+           frame.setVisible(true);
+       }
+   }
+   ```
+
+2. 东南西比中
+
+   ```java
+   public class Position {
+       public static void main(String[] args) {
+           Frame frame = new Frame();
+           Button east = new Button("East");
+           Button west = new Button("West");
+           Button south = new Button("South");
+           Button north = new Button("North");
+           Button center = new Button("Center");
+           //
+           frame.add(east,BorderLayout.EAST);
+           frame.add(west,BorderLayout.WEST);
+           frame.add(south,BorderLayout.SOUTH);
+           frame.add(north,BorderLayout.NORTH);
+           frame.add(center,BorderLayout.CENTER);
+   
+           frame.setSize(200,200);
+           frame.setVisible(true);
+   
+       }
+   }
+   ```
+
+3. 表格布局
+
+   ```java
+   public class TestGridLayout {
+       public static void main(String[] args) {
+           Frame frame = new Frame();
+           Button btn1 = new Button("btn1");
+           Button btn2 = new Button("btn2");
+           Button btn3 = new Button("btn3");
+           Button btn4 = new Button("btn4");
+           Button btn5 = new Button("btn5");
+           Button btn6 = new Button("btn6");
+           //GridLayout方法设置行列
+           frame.setLayout(new GridLayout(3,2));
+           frame.add(btn1);
+           frame.add(btn2);
+           frame.add(btn3);
+           frame.add(btn4);
+           frame.add(btn5);
+           frame.add(btn6);
+           frame.pack();
+           frame.setVisible(true);
+       }
+   }
+   ```
+
+```java
+public class task {
+    public static void main(String[] args) {
+        Frame frame = new Frame();
+        frame.setBounds(300, 300, 500, 500);
+        //frame.setBackground(new Color(2, 3, 5));
+        frame.setVisible(true);
+        frame.setLayout(new GridLayout(2,1));
+        Panel p1 = new Panel(new BorderLayout());
+        Panel p2 = new Panel(new GridLayout(2,1));
+        Panel p3 = new Panel(new BorderLayout());
+        Panel p4 = new Panel(new GridLayout(2,2));
+        p1.add(new Button("左"),BorderLayout.EAST);
+        p1.add(new Button("右"),BorderLayout.WEST);
+        p2.add(new Button("上"));
+        p2.add(new Button("下"));
+        p1.add(p2,BorderLayout.CENTER);
+        p3.add(new Button("east"),BorderLayout.EAST);
+        p3.add(new Button("west"),BorderLayout.WEST);
+        p4.add(new Button("east"));
+        p4.add(new Button("east"));
+        p4.add(new Button("east"));
+        p4.add(new Button("west"));
+        p3.add(p4,BorderLayout.CENTER);
+        frame.add(p1);
+        frame.add(p3);
+    }
+}
+```
 
 
 
